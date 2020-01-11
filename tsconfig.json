@@ -10,6 +10,7 @@
     "esModuleInterop": true,
     "jsx": "react",
     "baseUrl": "src",
+    "allowJs": true,
     "outDir": "./dist/",
     "paths": {
       "@pages/*": ["pages/*"]
