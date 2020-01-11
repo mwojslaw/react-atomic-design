@@ -12,7 +12,7 @@ export const Profile: FC<{ user: User }> = ({ user }) => {
           <ProfileCard onStatusChange={() => {}} user={user} />
         </Box>
         <Box m={2} flex={1}>
-          Repositorie
+          Repositories
         </Box>
       </Flex>
     </Box>
