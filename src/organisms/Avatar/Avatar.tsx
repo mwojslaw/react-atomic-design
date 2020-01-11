@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { Card, Box } from "atoms";
-import { Status, StatusProps } from "molecules";
+import { InputGroup } from "molecules";
 import styled from "styled-components";
 
 const AvatarImg = styled.div<{ src: string }>`
@@ -14,12 +14,20 @@ export const Avatar: FC<{
   src: string;
   width: string;
   height: string;
-  status: StatusProps;
+  status: {
+    text: string;
+    emoji: ReactNode;
+    onChange?: (value: string) => void;
+  };
 }> = ({ src, width, height, status }) => (
   <Card w={width} h={height}>
     <AvatarImg src={src} />
     <Box p={1}>
-      <Status emoji={status.emoji} text={status.text} />
+      <InputGroup
+        onChange={status.onChange}
+        value={status.text}
+        buttonText={status.emoji}
+      />
     </Box>
   </Card>
 );

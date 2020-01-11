@@ -1,8 +1,17 @@
-import React from "react";
-import { Status } from "molecules";
+import React, { useState } from "react";
+import { InputGroup } from "molecules";
 
 export default {
   title: "Molecules"
 };
 
-export const status = () => <Status emoji="sandglass" text="busy" />;
+export const inputGroup = () => {
+  const [value, setValue] = useState("");
+  return (
+    <InputGroup
+      value={value}
+      onChange={setValue}
+      buttonText={<span>&#8987;</span>}
+    />
+  );
+};

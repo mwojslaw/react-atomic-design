@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Flex, Box } from "atoms";
+import { Card, Flex, Box, Input, Button } from "atoms";
 
 export default {
   title: "Atoms"
@@ -59,3 +59,7 @@ export const flexBox = () => (
     </Flex>
   </Flex>
 );
+
+export const input = () => <Input />;
+
+export const button = () => <Button>New project</Button>;

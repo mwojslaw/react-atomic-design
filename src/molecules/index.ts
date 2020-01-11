@@ -1,1 +1,1 @@
-export * from "molecules/Status";
+export * from "molecules/InputGroup";
