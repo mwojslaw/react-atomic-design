@@ -1,6 +1,19 @@
 {
   "compilerOptions": {
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es2015", "es2017", "dom"],
+    "removeComments": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react"
-  }
+    "esModuleInterop": true,
+    "jsx": "react",
+    "baseUrl": "src",
+    "outDir": "./dist/",
+    "paths": {
+      "@pages/*": ["pages/*"]
+    }
+  },
+  "include": ["./src/**/*"]
 }

@@ -1,4 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import { Profile } from "@pages/Profile";
 
-ReactDOM.render(<div>Hello</div>, document.getElementById("root"));
+render(<Profile />, document.getElementById("root"));
