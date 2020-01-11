@@ -1,1 +1,1 @@
-export * from "@pages/Profile/Profile";
+export * from "pages/Profile/Profile";

@@ -17,6 +17,10 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader"
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: "file-loader"
       }
     ]
   },

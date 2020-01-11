@@ -11,10 +11,7 @@
     "jsx": "react",
     "baseUrl": "src",
     "allowJs": true,
-    "outDir": "./dist/",
-    "paths": {
-      "@pages/*": ["pages/*"]
-    }
+    "outDir": "./dist/"
   },
   "include": ["./src/**/*"]
 }
