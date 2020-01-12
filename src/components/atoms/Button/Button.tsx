@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { inputBase } from "components/atoms/Input";
+import { buttonStyle, variant, compose, ButtonStyleProps } from "styled-system";
 
-export const Button = styled.button`
-  ${inputBase}
-  background: ${({ theme }) => theme.button.background};
-  cursor: pointer;
-  font-weight: bold;
-`;
+export const Button = styled.button<ButtonStyleProps>(
+  compose(buttonStyle, variant)
+);
+
+Button.defaultProps = {
+  variant: "default"
+};

@@ -57,9 +57,22 @@ export const flexBox = () => (
   </Flex>
 );
 
-export const input = () => <Input />;
+export const input = () => (
+  <Box width="200px">
+    <Input />
+  </Box>
+);
 
-export const button = () => <Button>New project</Button>;
+export const button = () => (
+  <Flex justifyContent="space-around">
+    <Box width="200px">
+      <Button variant="default">Edit profile</Button>
+    </Box>
+    <Box width="200px">
+      <Button variant="primary">New</Button>
+    </Box>
+  </Flex>
+);
 
 export const badge = () => (
   <div>
