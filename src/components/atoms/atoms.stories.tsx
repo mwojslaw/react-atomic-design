@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Flex, Box, Input, Button } from "components/atoms";
+import { Card, Flex, Box, Input, Button, Badge } from "components/atoms";
 import { space, colors } from "theme";
 
 export default {
@@ -60,3 +60,18 @@ export const flexBox = () => (
 export const input = () => <Input />;
 
 export const button = () => <Button>New project</Button>;
+
+export const badge = () => (
+  <div>
+    <div>
+      <Badge content="100" placement="inline">
+        Inline
+      </Badge>
+    </div>
+    <Box mt={space.xl}>
+      <Badge content="5" placement="top-right">
+        Top-right
+      </Badge>
+    </Box>
+  </div>
+);

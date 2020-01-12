@@ -8,6 +8,7 @@ type ThemeColors = {
 };
 
 type Size = {
+  xs: number;
   s: number;
   m: number;
   l: number;
@@ -18,6 +19,7 @@ type Spacing = Size & { none: number };
 
 export const space: Spacing = {
   none: 0,
+  xs: 3,
   s: 6,
   m: 12,
   l: 18,
@@ -26,6 +28,7 @@ export const space: Spacing = {
 
 export const radii: Spacing = {
   none: 0,
+  xs: 1,
   s: 3,
   m: 6,
   l: 10,
@@ -33,6 +36,7 @@ export const radii: Spacing = {
 };
 
 export const fontSizes: Size = {
+  xs: 10,
   s: 12,
   m: 14,
   l: 16,
