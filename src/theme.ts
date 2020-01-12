@@ -5,6 +5,7 @@ type ThemeColors = {
   gray: CSS.ColorProperty;
   grayDark: CSS.ColorProperty;
   blue: CSS.ColorProperty;
+  orange: CSS.ColorProperty;
 };
 
 type Size = {
@@ -50,6 +51,7 @@ export type Theme = {
   fontSizes: Size;
   borders: {
     default: CSS.BorderProperty<number>;
+    strong: CSS.BorderProperty<number>;
   };
   button: {
     background: CSS.BackgroundClipProperty;
@@ -63,7 +65,8 @@ export const colors: ThemeColors = {
   grayLight: "#fafbfc",
   gray: "#e1e4e8",
   grayDark: "#666666",
-  blue: "#0066D6"
+  blue: "#0066D6",
+  orange: "#e36209"
 };
 
 export const theme: Theme = {
@@ -74,7 +77,8 @@ export const theme: Theme = {
     background: `linear-gradient(-180deg,${colors.grayLight},${colors.gray} 90%)`
   },
   borders: {
-    default: "1px solid"
+    default: "1px solid",
+    strong: "3px solid"
   },
   fontSizes,
   space,

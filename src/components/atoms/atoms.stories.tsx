@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Flex, Box, Input, Button, Badge } from "components/atoms";
+import { Card, Flex, Box, Input, Button, Badge, Tab } from "components/atoms";
 import { space, colors } from "theme";
 
 export default {
@@ -74,4 +74,26 @@ export const badge = () => (
       </Badge>
     </Box>
   </div>
+);
+
+export const tab = () => (
+  <Flex>
+    <Box mr={space.xs}>
+      <Tab disabled={true}>Overview</Tab>
+    </Box>
+    <Box mr={space.xs}>
+      <Tab>
+        <Badge placement="inline" content="10">
+          Repositories
+        </Badge>
+      </Tab>
+    </Box>
+    <Box mr={space.xs}>
+      <Tab selected={true}>
+        <Badge placement="inline" content="0">
+          Projects
+        </Badge>
+      </Tab>
+    </Box>
+  </Flex>
 );
