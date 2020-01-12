@@ -1,58 +1,55 @@
 import React from "react";
 import { Card, Flex, Box, Input, Button } from "components/atoms";
+import { space, colors } from "theme";
 
 export default {
   title: "Atoms"
 };
 
-export const card = () => <Card w="250px" h="250px" />;
+export const card = () => <Card width="250px" height="250px" />;
 
 export const flexBox = () => (
-  <Flex direction="column">
+  <Flex flexDirection="column">
     <Flex>
       <Box
-        style={{
-          background: "#68b47c",
-          color: "white"
-        }}
-        w={1 / 3}
-        p={3}
-        m={1}
+        border="1px solid"
+        borderColor={colors.gray}
+        color={colors.grayDark}
+        width={1 / 3}
+        p={space.l}
+        m={space.s}
       >
         width: 1/3
       </Box>
       <Box
-        style={{
-          background: "#4990E2",
-          color: "white"
-        }}
-        w={2 / 3}
-        p={3}
-        m={1}
+        border="1px solid"
+        borderColor={colors.gray}
+        color={colors.grayDark}
+        width={2 / 3}
+        p={space.l}
+        m={space.s}
       >
         width: 2/3
       </Box>
     </Flex>
     <Flex>
       <Box
-        style={{
-          background: "#78dc91",
-          color: "white"
-        }}
-        w="300px"
-        p={3}
-        m={1}
+        border="1px solid"
+        color={colors.grayDark}
+        borderColor={colors.gray}
+        width="300px"
+        p={space.l}
+        m={space.s}
       >
         width: 300px
       </Box>
       <Box
-        style={{
-          background: "#32C7FF",
-          color: "white"
-        }}
+        border="1px solid"
+        color={colors.grayDark}
+        borderColor={colors.gray}
         flex={1}
-        p={3}
-        m={1}
+        p={space.l}
+        m={space.s}
       >
         flex: 1
       </Box>

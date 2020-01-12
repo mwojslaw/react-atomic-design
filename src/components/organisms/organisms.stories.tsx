@@ -42,7 +42,7 @@ export const profileCard = () => {
   const [value, setValue] = useState("Busy");
 
   return (
-    <Box w={1 / 4}>
+    <Box width={1 / 4}>
       <ProfileCard
         user={{
           ...user,

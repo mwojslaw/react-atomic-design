@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { getTheme } from "theme";
+import { theme } from "theme";
 import { normalize } from "styled-normalize";
 
 export const GlobalStyle = createGlobalStyle`
@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const App = () => (
-  <ThemeProvider theme={getTheme("light")}>
+  <ThemeProvider theme={theme}>
     <>
       <GlobalStyle />
     </>

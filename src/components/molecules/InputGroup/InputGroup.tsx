@@ -24,7 +24,7 @@ export const InputGroup: FC<{
   onChange: (value: string) => void;
 }> = ({ buttonText, value, onChange }) => (
   <Flex>
-    <Box w={1 / 5}>
+    <Box width={1 / 5}>
       <Button>{buttonText}</Button>
     </Box>
     <Input onChange={e => onChange(e.target.value)} value={value} />

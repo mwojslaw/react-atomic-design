@@ -9,7 +9,7 @@ const user: User = {
   locaton: "Kraków",
   avatarSrc: Me,
   status: {
-    text: "",
+    text: "Busy",
     emoji: "sandglass"
   }
 };

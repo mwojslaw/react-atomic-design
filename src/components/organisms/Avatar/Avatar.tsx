@@ -1,8 +1,9 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
 import { Card, Box } from "components/atoms";
 import { InputGroup } from "components/molecules";
 import { User, UserStatusEmojiType } from "domain/User";
 import styled from "styled-components";
+import { space } from "theme";
 
 const AvatarImg = styled.div<{ src: string }>`
   background-image: url(${({ src }) => src});
@@ -24,9 +25,9 @@ export const Avatar: FC<{
   height: string;
   onStatusChange?: (value: string) => void;
 }> = ({ user, width, height, onStatusChange }) => (
-  <Card w={width} h={height}>
+  <Card width={width} height={height}>
     <AvatarImg src={user.avatarSrc} />
-    <Box p={1}>
+    <Box p={space.s}>
       <InputGroup
         onChange={onStatusChange}
         value={user.status.text}
