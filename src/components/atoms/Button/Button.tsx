@@ -1,8 +1,18 @@
 import styled from "styled-components";
 import { buttonStyle, variant, compose, ButtonStyleProps } from "styled-system";
 
-export const Button = styled.button<ButtonStyleProps>(
-  compose(buttonStyle, variant)
+type ButtonProps = ButtonStyleProps & { active?: boolean };
+
+export const Button = styled.button<ButtonProps>(
+  compose(buttonStyle, variant),
+  {
+    ":focus": {
+      outline: "none"
+    },
+    ":hover": {
+      filter: "brightness(95%)"
+    }
+  }
 );
 
 Button.defaultProps = {

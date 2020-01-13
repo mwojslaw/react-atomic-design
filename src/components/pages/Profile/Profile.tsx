@@ -8,8 +8,8 @@ export const Profile: FC<{ user: User }> = ({ user }) => {
   return (
     <Box>
       <Box p={space.m}>Header</Box>
-      <Flex>
-        <Box m={space.m} width={1 / 3}>
+      <Flex px={space.l} mt={space.xl}>
+        <Box mr={space.l} width={1 / 4}>
           <ProfileCard onStatusChange={() => {}} user={user} />
         </Box>
         <Box m={space.m} flex={1}>

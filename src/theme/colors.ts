@@ -11,7 +11,7 @@ export type ThemeColors = {
 
 export const colors: ThemeColors = {
   white: "#fff",
-  grayLight: "#fafbfc",
+  grayLight: "#f6f8fa",
   gray: "#e1e4e8",
   grayDark: "#666666",
   blue: "#0066D6",

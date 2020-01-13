@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { Avatar, ProfileCard } from "components/organisms";
+import {
+  Avatar,
+  ProfileCard,
+  RepositorySearchBar,
+  WithAllOptionValue
+} from "components/organisms";
 import { Box } from "components/atoms";
 import Me from "assets/me.jpg";
 import { User } from "domain/User";
+import { RepositoryLanguage, RepositoryType } from "domain/Repository";
 
 export default {
   title: "Organisms"
@@ -54,5 +60,23 @@ export const profileCard = () => {
         onStatusChange={setValue}
       />
     </Box>
+  );
+};
+
+export const repositorySearchBar = () => {
+  const [type, setType] = useState<WithAllOptionValue<RepositoryType>>("*");
+  const [language, setLanguage] = useState<
+    WithAllOptionValue<RepositoryLanguage>
+  >("*");
+
+  return (
+    <RepositorySearchBar
+      language={language}
+      onChangeLanguage={setLanguage}
+      onChangeType={setType}
+      languages={["*", "javascript", "typescript"]}
+      type={type}
+      types={["*", "private", "public"]}
+    />
   );
 };

@@ -1,7 +1,7 @@
 import { CSSObject } from "styled-components";
 import { colors, ThemeColors } from "theme/colors";
 import { space, Size, Spacing, radii, fontSizes } from "theme/sizes";
-import { buttonBase, ButtonVariants } from "theme/button";
+import { buttonBase, ButtonVariant } from "theme/button";
 import { inputBase } from "theme/input";
 
 export type Theme = {
@@ -13,7 +13,7 @@ export type Theme = {
     default: string;
     strong: string;
   };
-  buttons: ButtonVariants;
+  buttons: Record<ButtonVariant, CSSObject>;
   input: CSSObject;
 };
 

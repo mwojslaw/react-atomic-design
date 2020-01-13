@@ -20,7 +20,7 @@ const Button = styled(ButtonBase)`
 
 export const InputGroup: FC<{
   buttonText: ReactNode;
-  value: string;
+  value?: string;
   onChange: (value: string) => void;
 }> = ({ buttonText, value, onChange }) => (
   <Flex>

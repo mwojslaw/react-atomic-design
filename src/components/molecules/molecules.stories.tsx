@@ -1,20 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box } from "components/atoms";
-import { InputGroup } from "components/molecules";
+import { InputGroup, DropDown } from "components/molecules";
+import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Molecules"
 };
 
-export const inputGroup = () => {
-  const [value, setValue] = useState("");
-  return (
-    <Box width="200px">
-      <InputGroup
-        value={value}
-        onChange={setValue}
-        buttonText={<span>&#8987;</span>}
-      />
-    </Box>
-  );
-};
+export const inputGroup = () => (
+  <Box width="200px">
+    <InputGroup
+      onChange={action("onChange")}
+      buttonText={<span>&#8987;</span>}
+    />
+  </Box>
+);
+
+export const dropDown = () => (
+  <Box width="200px">
+    <DropDown
+      options={[
+        {
+          label: "All",
+          value: "all"
+        },
+        {
+          label: "Public",
+          value: "public"
+        },
+        {
+          label: "Private",
+          value: "private"
+        }
+      ]}
+      onChange={action("onChange")}
+      label="Type"
+    />
+  </Box>
+);

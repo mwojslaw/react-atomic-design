@@ -1,1 +1,2 @@
-export * from "domain";
+export * from "domain/User";
+export * from "domain/Repository";
