@@ -1,7 +1,12 @@
 import styled from "styled-components";
+import { Box } from "components/atoms";
 
-export const Tab = styled.span<{ selected?: boolean; disabled?: boolean }>`
-  padding: 16px 8px;
+export type TabProps = { selected?: boolean; disabled?: boolean };
+
+export const Tab = styled(Box).attrs(({ theme }) => ({
+  px: theme.space.s,
+  py: theme.space.l
+}))<TabProps>`
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 

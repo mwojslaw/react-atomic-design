@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { theme } from "theme";
 import { normalize } from "styled-normalize";
 

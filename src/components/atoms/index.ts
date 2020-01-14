@@ -6,3 +6,4 @@ export * from "components/atoms/Link";
 export * from "components/atoms/Text";
 export * from "components/atoms/Badge";
 export * from "components/atoms/Tab";
+export * from "components/atoms/Avatar";

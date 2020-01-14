@@ -5,7 +5,7 @@ import { User } from "domain/User";
 
 const user: User = {
   name: "mwojslaw",
-  email: "maciej.wojslaw.bebz@gmail.com",
+  email: "maciej@gmail.com",
   locaton: "Kraków",
   avatarSrc: Me,
   status: {
@@ -18,4 +18,12 @@ export default {
   title: "Pages"
 };
 
-export const profile = () => <Profile user={user} />;
+export const profile = () => (
+  <Profile
+    repositoryLanguage="*"
+    repositoryLanguages={["*", "javascript", "typescript"]}
+    repositoryType="*"
+    repositoryTypes={["*", "public", "private"]}
+    user={user}
+  />
+);

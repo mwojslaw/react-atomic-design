@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Avatar,
   ProfileCard,
   RepositorySearchBar,
   WithAllOptionValue
@@ -9,6 +8,7 @@ import { Box } from "components/atoms";
 import Me from "assets/me.jpg";
 import { User } from "domain/User";
 import { RepositoryLanguage, RepositoryType } from "domain/Repository";
+import { Avatar } from "components/atoms";
 
 export default {
   title: "Organisms"
@@ -25,11 +25,11 @@ const user: User = {
   }
 };
 
-export const avatar = () => {
+export const profileCard = () => {
   const [value, setValue] = useState("Busy");
 
   return (
-    <Avatar
+    <ProfileCard
       user={{
         ...user,
         status: {
@@ -38,28 +38,7 @@ export const avatar = () => {
         }
       }}
       onStatusChange={setValue}
-      width="250px"
-      height="250px"
     />
-  );
-};
-
-export const profileCard = () => {
-  const [value, setValue] = useState("Busy");
-
-  return (
-    <Box width={1 / 4}>
-      <ProfileCard
-        user={{
-          ...user,
-          status: {
-            ...user.status,
-            text: value
-          }
-        }}
-        onStatusChange={setValue}
-      />
-    </Box>
   );
 };
 

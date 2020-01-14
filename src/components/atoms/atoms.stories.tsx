@@ -1,6 +1,16 @@
 import React from "react";
-import { Card, Flex, Box, Input, Button, Badge, Tab } from "components/atoms";
+import {
+  Card,
+  Flex,
+  Box,
+  Input,
+  Button,
+  Badge,
+  Tab,
+  Avatar
+} from "components/atoms";
 import { space, colors } from "theme";
+import Me from "assets/me.jpg";
 
 export default {
   title: "Atoms"
@@ -110,3 +120,5 @@ export const tab = () => (
     </Box>
   </Flex>
 );
+
+export const avatar = () => <Avatar src={Me} />;

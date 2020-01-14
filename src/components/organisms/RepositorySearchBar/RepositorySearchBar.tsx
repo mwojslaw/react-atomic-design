@@ -5,6 +5,7 @@ import { ThemeContext } from "styled-components";
 import { RepositoryType, RepositoryLanguage } from "domain/Repository";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { useMediaQuery } from "react-responsive";
 
 export type WithAllOptionValue<T> = T | "*";
 
@@ -13,8 +14,8 @@ type RepositorySearchBarProps<T, L> = {
   type: WithAllOptionValue<T>;
   languages: WithAllOptionValue<L>[];
   language: WithAllOptionValue<L>;
-  onChangeType: (type: WithAllOptionValue<T>) => void;
-  onChangeLanguage: (language: WithAllOptionValue<L>) => void;
+  onChangeType?: (type: WithAllOptionValue<T>) => void;
+  onChangeLanguage?: (language: WithAllOptionValue<L>) => void;
 };
 
 const optionPerRepositoryType: Record<
@@ -57,13 +58,17 @@ export const RepositorySearchBar: FC<RepositorySearchBarProps<
   RepositoryType,
   RepositoryLanguage
 >> = ({ types, type, language, languages, onChangeLanguage, onChangeType }) => {
-  const { space } = useContext(ThemeContext);
+  const { space, mediaQueries } = useContext(ThemeContext);
+  const minTablet = useMediaQuery({
+    query: mediaQueries.tablet
+  });
+
   return (
-    <Flex>
-      <Box mr={space.l} width={1 / 2}>
+    <Flex flexDirection={minTablet ? "row" : "column"}>
+      <Box mr={space.l} width={{ mobile: 1, tablet: 1 / 2 }}>
         <Input placeholder="Find a repository..." />
       </Box>
-      <Flex width={1 / 2}>
+      <Flex mt={{ mobile: space.m, tablet: 0 }} flex={1}>
         <Box mr={space.s}>
           <DropDown
             label="Type"

@@ -3,6 +3,7 @@ import { colors, ThemeColors } from "theme/colors";
 import { space, Size, Spacing, radii, fontSizes } from "theme/sizes";
 import { buttonBase, ButtonVariant } from "theme/button";
 import { inputBase } from "theme/input";
+import { breakpoints, Breakpoints, mediaQueries } from "theme/breakpoints";
 
 export type Theme = {
   colors: ThemeColors;
@@ -14,6 +15,8 @@ export type Theme = {
     strong: string;
   };
   buttons: Record<ButtonVariant, CSSObject>;
+  breakpoints: Breakpoints;
+  mediaQueries: Breakpoints;
   input: CSSObject;
 };
 
@@ -40,5 +43,7 @@ export const theme: Theme = {
   fontSizes,
   space,
   radii,
-  colors
+  colors,
+  breakpoints,
+  mediaQueries
 };
