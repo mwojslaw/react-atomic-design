@@ -1,12 +1,12 @@
-import React, { FC, useContext } from "react";
+import React, { FC } from "react";
 import { Flex, Box, Link, Text, Card, Button, Avatar } from "components/atoms";
 import { InputGroup } from "components/molecules";
 import { User, UserStatusEmojiType } from "domain/User";
-import { colors, Theme, Spacing, ThemeColors } from "theme";
+import { colors, Spacing, ThemeColors } from "theme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useMediaQuery } from "react-responsive";
-import { ThemeContext } from "styled-components";
+import { useTheme } from "hooks";
 
 const getEmojiForType = (emojiType: UserStatusEmojiType) => {
   switch (emojiType) {
@@ -46,7 +46,7 @@ export const ProfileCard: FC<{
   user: User;
   onStatusChange: (value: string) => void;
 }> = ({ user, onStatusChange }) => {
-  const { space, mediaQueries } = useContext<Theme>(ThemeContext);
+  const { space, mediaQueries } = useTheme();
   const minTablet = useMediaQuery({
     query: mediaQueries.tablet
   });

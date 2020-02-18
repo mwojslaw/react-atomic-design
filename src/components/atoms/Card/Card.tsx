@@ -1,13 +1,13 @@
-import { ThemeContext } from "styled-components";
 import { Flex } from "components/atoms";
-import React, { useContext, FC } from "react";
+import React, { FC } from "react";
 import CSS from "csstype";
+import { useTheme } from "hooks";
 
 export const Card: FC<{
   width: CSS.WidthProperty<number>;
   height: CSS.WidthProperty<number>;
 }> = ({ children, width, height }) => {
-  const { colors, radii } = useContext(ThemeContext);
+  const { colors, radii } = useTheme();
 
   return (
     <Flex

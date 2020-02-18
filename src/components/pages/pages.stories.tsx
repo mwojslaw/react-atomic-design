@@ -20,9 +20,21 @@ export default {
 
 export const profile = () => (
   <Profile
-    repositoryLanguage="*"
+    repositories={[
+      {
+        name: "react-atomic-design",
+        description: "In search of PERFECT* design system for react",
+        language: "typescript",
+        type: "public"
+      },
+      {
+        name: "react-cqrs",
+        description: "",
+        language: "javascript",
+        type: "public"
+      }
+    ]}
     repositoryLanguages={["*", "javascript", "typescript"]}
-    repositoryType="*"
     repositoryTypes={["*", "public", "private"]}
     user={user}
   />

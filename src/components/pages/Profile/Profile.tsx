@@ -1,36 +1,63 @@
-import React, { FC, useContext } from "react";
+import React, { FC, useState } from "react";
 import { User } from "domain/User";
-import { RepositoryType, RepositoryLanguage } from "domain/Repository";
+import {
+  RepositoryType,
+  RepositoryLanguage,
+  Repository
+} from "domain/Repository";
 import {
   ProfileCard,
   RepositorySearchBar,
-  WithAllOptionValue
+  WithAllOptionValue,
+  RepositoryItems
 } from "components/organisms";
 import { Flex, Box, Tab, Badge } from "components/atoms";
 import { space } from "theme";
 import { useMediaQuery } from "react-responsive";
-import { ThemeContext } from "styled-components";
-import { Theme } from "theme";
+import { useTheme } from "hooks";
 
 type ProfileProps = {
   user: User;
+  repositories: Repository[];
   repositoryTypes: WithAllOptionValue<RepositoryType>[];
-  repositoryType: WithAllOptionValue<RepositoryType>;
-  repositoryLanguage: WithAllOptionValue<RepositoryLanguage>;
   repositoryLanguages: WithAllOptionValue<RepositoryLanguage>[];
 };
 
 export const Profile: FC<ProfileProps> = ({
   user,
   repositoryLanguages,
-  repositoryTypes,
-  repositoryType,
-  repositoryLanguage
+  repositories,
+  repositoryTypes
 }) => {
-  const theme = useContext<Theme>(ThemeContext);
+  const theme = useTheme();
+
+  const [repositoryType, setRepositoryType] = useState<
+    WithAllOptionValue<RepositoryType>
+  >("*");
+
+  const [repositoryLanguage, setRepositoryLanguage] = useState<
+    WithAllOptionValue<RepositoryLanguage>
+  >("*");
+
+  const [searchText, setSearchText] = useState("");
+
   const minTablet = useMediaQuery({
     query: theme.mediaQueries.tablet
   });
+
+  const repositoriesWithFilters = repositories.filter(
+    repository =>
+      (repositoryType === "*" || repository.type === repositoryType) &&
+      (repositoryLanguage === "*" ||
+        repository.language === repositoryLanguage) &&
+      (searchText === "" || repository.name.includes(searchText))
+  );
+
+  const onClearFilters = (): void => {
+    setSearchText("");
+    setRepositoryType("*");
+    setRepositoryLanguage("*");
+  };
 
   return (
     <Box>
@@ -84,10 +111,21 @@ export const Profile: FC<ProfileProps> = ({
             </Tab>
           </Flex>
           <RepositorySearchBar
+            searchText={searchText}
             type={repositoryType}
             language={repositoryLanguage}
             types={repositoryTypes}
             languages={repositoryLanguages}
+            onChangeLanguage={setRepositoryLanguage}
+            onChangeType={setRepositoryType}
+            onChangeText={setSearchText}
+          />
+          <RepositoryItems
+            onClearFilters={onClearFilters}
+            language={repositoryLanguage}
+            type={repositoryType}
+            searchText={searchText}
+            items={repositoriesWithFilters}
           />
         </Box>
       </Flex>

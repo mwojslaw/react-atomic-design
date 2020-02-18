@@ -5,11 +5,11 @@ import {
   color,
   ColorProps,
   space,
-  SpaceProps
+  SpaceProps,
+  display,
+  DisplayProps
 } from "styled-system";
 
-export const Text = styled.div<TypographyProps & ColorProps & SpaceProps>(
-  typography,
-  color,
-  space
-);
+export const Text = styled.div<
+  TypographyProps & ColorProps & SpaceProps & DisplayProps
+>(typography, color, space, display);

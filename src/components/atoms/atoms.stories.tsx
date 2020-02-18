@@ -7,7 +7,8 @@ import {
   Button,
   Badge,
   Tab,
-  Avatar
+  Avatar,
+  Item
 } from "components/atoms";
 import { space, colors } from "theme";
 import Me from "assets/me.jpg";
@@ -122,3 +123,5 @@ export const tab = () => (
 );
 
 export const avatar = () => <Avatar src={Me} />;
+
+export const item = () => <Item>Hi !</Item>;

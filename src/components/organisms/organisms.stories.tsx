@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import {
   ProfileCard,
   RepositorySearchBar,
-  WithAllOptionValue
+  WithAllOptionValue,
+  RepositoryItems
 } from "components/organisms";
-import { Box } from "components/atoms";
 import Me from "assets/me.jpg";
 import { User } from "domain/User";
 import { RepositoryLanguage, RepositoryType } from "domain/Repository";
-import { Avatar } from "components/atoms";
+import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Organisms"
@@ -59,3 +59,35 @@ export const repositorySearchBar = () => {
     />
   );
 };
+
+export const repositoryItems = () => (
+  <RepositoryItems
+    onClearFilters={action("onClearFilters")}
+    type="*"
+    language="*"
+    items={[
+      {
+        name: "react-atomic-design",
+        description: "In search of PERFECT* design system for react",
+        language: "typescript",
+        type: "public"
+      },
+      {
+        name: "react-cqrs",
+        description: "",
+        language: "javascript",
+        type: "public"
+      }
+    ]}
+  />
+);
+
+export const repositoryItemsEmpty = () => (
+  <RepositoryItems
+    onClearFilters={action("onClearFilters")}
+    type="public"
+    language="javascript"
+    searchText={"Hahaha"}
+    items={[]}
+  />
+);

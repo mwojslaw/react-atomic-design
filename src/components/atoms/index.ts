@@ -7,3 +7,4 @@ export * from "components/atoms/Text";
 export * from "components/atoms/Badge";
 export * from "components/atoms/Tab";
 export * from "components/atoms/Avatar";
+export * from "components/atoms/Item";

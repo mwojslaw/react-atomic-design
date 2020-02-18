@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "components/atoms";
-import { InputGroup, DropDown } from "components/molecules";
+import { InputGroup, DropDown, RepositoryItem } from "components/molecules";
 import { action } from "@storybook/addon-actions";
 
 export default {
@@ -37,4 +37,15 @@ export const dropDown = () => (
       label="Type"
     />
   </Box>
+);
+
+export const repositoryItem = () => (
+  <RepositoryItem
+    item={{
+      name: "react-atomic-design",
+      description: "In search of PERFECT* design system for react",
+      language: "typescript",
+      type: "public"
+    }}
+  />
 );

@@ -2,7 +2,7 @@ import styled, { DefaultTheme } from "styled-components";
 import React, { FC } from "react";
 import { Flex, InlineFlex } from "components/atoms";
 
-type BadgePlacement = "top-right" | "inline";
+type BadgePlacement = "top-right" | "inline" | "inline-reverse";
 
 const getPlacementConfig = (placement: BadgePlacement, theme: DefaultTheme) => {
   switch (placement) {
@@ -17,6 +17,9 @@ const getPlacementConfig = (placement: BadgePlacement, theme: DefaultTheme) => {
     case "inline": {
       return `margin-left: ${theme.space.xs}px;`;
     }
+    case "inline-reverse": {
+      return `margin-right: ${theme.space.xs}px;`;
+    }
   }
 };
 
@@ -30,12 +33,16 @@ const BadgeIndicator = styled(Flex)<{ placement: BadgePlacement }>`
   ${({ placement, theme }) => getPlacementConfig(placement, theme)}
 `;
 
-export const Badge: FC<{ content: string; placement: BadgePlacement }> = ({
+export const Badge: FC<{ content?: string; placement: BadgePlacement }> = ({
   children,
   content,
   placement
 }) => (
-  <InlineFlex position="relative" alignItems="center">
+  <InlineFlex
+    flexDirection={placement === "inline-reverse" ? "row-reverse" : "row"}
+    position="relative"
+    alignItems="center"
+  >
     {children}
     <BadgeIndicator placement={placement}>{content}</BadgeIndicator>
   </InlineFlex>

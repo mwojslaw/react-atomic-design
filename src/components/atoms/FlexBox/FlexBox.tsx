@@ -11,9 +11,9 @@ import {
   BorderProps,
   position,
   PositionProps,
-  compose
+  compose,
+  border
 } from "styled-system";
-import { border } from "styled-system";
 
 type BoxProps = SpaceProps &
   LayoutProps &
@@ -22,10 +22,7 @@ type BoxProps = SpaceProps &
   PositionProps;
 
 export const Box = styled.div<BoxProps>(
-  compose(space, layout, flex, border, position),
-  {
-    boxSizing: "border-box"
-  }
+  compose(space, layout, flex, border, position)
 );
 
 export const Flex = styled(Box)<FlexboxProps>(flexbox, {

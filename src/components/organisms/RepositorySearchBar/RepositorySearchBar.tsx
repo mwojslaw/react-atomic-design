@@ -1,11 +1,11 @@
-import React, { FC, useContext } from "react";
+import React, { FC } from "react";
 import { Flex, Box, Input, Button } from "components/atoms";
 import { DropDown, Option } from "components/molecules";
-import { ThemeContext } from "styled-components";
 import { RepositoryType, RepositoryLanguage } from "domain/Repository";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 import { useMediaQuery } from "react-responsive";
+import { useTheme } from "hooks";
 
 export type WithAllOptionValue<T> = T | "*";
 
@@ -14,8 +14,10 @@ type RepositorySearchBarProps<T, L> = {
   type: WithAllOptionValue<T>;
   languages: WithAllOptionValue<L>[];
   language: WithAllOptionValue<L>;
+  searchText?: string;
   onChangeType?: (type: WithAllOptionValue<T>) => void;
   onChangeLanguage?: (language: WithAllOptionValue<L>) => void;
+  onChangeText?: (text: string) => void;
 };
 
 const optionPerRepositoryType: Record<
@@ -57,18 +59,36 @@ const optionPerRepositoryLanguage: Record<
 export const RepositorySearchBar: FC<RepositorySearchBarProps<
   RepositoryType,
   RepositoryLanguage
->> = ({ types, type, language, languages, onChangeLanguage, onChangeType }) => {
-  const { space, mediaQueries } = useContext(ThemeContext);
+>> = ({
+  types,
+  type,
+  language,
+  languages,
+  onChangeLanguage,
+  onChangeType,
+  onChangeText,
+  searchText
+}) => {
+  const { space, mediaQueries, borders, input } = useTheme();
   const minTablet = useMediaQuery({
     query: mediaQueries.tablet
   });
 
   return (
-    <Flex flexDirection={minTablet ? "row" : "column"}>
-      <Box mr={space.l} width={{ mobile: 1, tablet: 1 / 2 }}>
-        <Input placeholder="Find a repository..." />
+    <Flex
+      pb={space.l}
+      borderBottom={borders.default}
+      borderColor={input.borderColor}
+      flexDirection={minTablet ? "row" : "column"}
+    >
+      <Box mr={space.l} flex={1}>
+        <Input
+          value={searchText}
+          onChange={(event): void => onChangeText(event.currentTarget.value)}
+          placeholder="Find a repository..."
+        />
       </Box>
-      <Flex mt={{ mobile: space.m, tablet: 0 }} flex={1}>
+      <Flex mt={{ mobile: space.m, tablet: 0 }}>
         <Box mr={space.s}>
           <DropDown
             label="Type"
